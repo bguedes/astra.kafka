@@ -1,0 +1,17 @@
+{
+  "name": "kafka-to-astra-sink",
+  "config": {
+    "connector.class": "com.datastax.kafkaconnector.DseSinkConnector",
+    "cloud.secureConnectBundle": "/home/datastax-connect-driver/secure-connect-astrademo.zip",
+    "auth.username": "datastax",
+    "auth.password": "datastax",
+    "tasks.max": "1",
+    "topics": "json-stream",
+    "topic.json-stream.astrademo.stocks_table_by_symbol.mapping": "symbol=value.symbol, datetime=value.datetime, exchange=value.exchange, industry=value.industry, name=key, value=value.value",
+    "topic.json-stream.astrademo.stocks_table_by_exchange.mapping": "symbol=value.symbol, datetime=value.datetime, exchange=value.exchange, industry=value.industry, name=key, value=value.value",
+    "topic.json-stream.astrademo.stocks_table_by_industry.mapping": "symbol=value.symbol, datetime=value.datetime, exchange=value.exchange, industry=value.industry, name=key, value=value.value",
+    "topic.json-stream.astrademo.stocks_table_by_symbol.consistencyLevel": "ONE",
+    "topic.json-stream.astrademo.stocks_table_by_exchange.consistencyLevel": "ONE",
+    "topic.json-stream.astrademo.stocks_table_by_industry.consistencyLevel": "ONE"
+  }
+}
