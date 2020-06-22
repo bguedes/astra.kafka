@@ -217,3 +217,25 @@ datastax@cqlsh> select * from astrademo.stocks_table_by_symbol limit 10;
 (10 rows)
 datastax@cqlsh>
 ```
+
+### Using Kafka Producer Rest Api
+
+#### Launch Spring Boot application
+
+```shell
+cd ./astra-kafka-producer-demo/
+
+./mvnw spring-boot:run
+```
+
+Use a REST client like Advanced REST Chrome client extension
+
+![](https://raw.githubusercontent.com/bguedes/static/master/AstraKafkaRestExample.png)
+
+And check in Astra the uploading data :
+
+```sql
+select * from astrademo.stocks_table_by_symbol where symbol='BGU';
+```
+
+![](https://raw.githubusercontent.com/bguedes/static/master/astraKafkaProducerRestApiResult.png)
